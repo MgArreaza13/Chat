@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="../static/registro/ico/ico.png">
+
+        <title>Registro</title>
+        <link rel="stylesheet" href="../static/registro/css/signin2.css">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+        
+            
+           
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button> 
+              <a class="navbar-brand" href="#">Mg Systems</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!--
+
+    <div class="container">
+
+      <form class="form-signin" role="form" action="" method="POST">
+     
+        <h2 class="form-signin-heading">Registro</h2>
+
+{% csrf_token %} 
+{% for field in form %}
+        <fieldset class="form-group">
+
+        <input type="{{field.type}}" class="form-control"
+            name="{{ field.label }}"
+              id="{{ field.name }}"
+            value="{{ field.name }}" 
+            required autofocus>
+
+</fieldset>
+       
+     
+{% endfor %}   
+        <button class="btn btn-lg btn-success btn-block" type="submit">Registrar</button>
+      </form>
+
+    </div>  /container -->
+ <form class="form-signin" role="form" action="" method="POST">
+     {% csrf_token %}
+    <fieldset>
+      <h2 class="form-signin-heading">Registro</h2>
+        {% for field in form %}
+            {% if field.errors %}
+                <div class="control-group error">
+                  <input type="{{field.type}}" class="form-control"
+                     placeholder="{{ field.name }}"
+            name="{{ field.label }}"
+              id="{{ field.name }}"
+            autocomplete="off" maxlength="{{ field.max_length }}"
+            required autofocus>
+                        <span class="help-inline">
+                            {% for error in  field.errors %}{{ error }}{% endfor %}
+                        </span>
+                   
+                </div>
+            {% else %}
+                <div class="control-group">
+                     <input type="{{field.type}}" class="form-control"
+                     placeholder="{{ field.name }}"
+            name="{{ field.label }}"
+              id="{{ field.name }}"
+            autocomplete="off" maxlength="{{field.length}}"
+            required autofocus>
+                        {% if field.help_text %}
+                            <p class="help-inline"><small>{{ field.help_text }}</small></p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </fieldset>
+    <div class="form-actions">
+      <br>
+         <button class="btn btn-lg btn-success btn-block" type="submit">Registrar</button>
+    </div>
+</form>
+ 
+
+  </body>
+
+</html>

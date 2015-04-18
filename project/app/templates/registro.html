@@ -1,0 +1,76 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> 
+  {% include 'material/includes/material_css.html' %}
+  {% include 'material/includes/material_js.html' %}
+  {% load material_form %}
+
+<html class="no-js" lang="ES"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Miguel Arreaza</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="../static/css/normalize.min.css">
+        <link rel="stylesheet" href="../static/css/animate.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../static/css/login.css">
+        <link rel="stylesheet" href="../static/css/style.css">
+
+        <script src="../static/js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+       <header>
+       <div id="titulo">
+         <h1 id="titula">Titulo</h1>
+       </div>
+       </header>
+     
+         <div id="login">
+          <div id="titulo">
+            <h1>
+              Registro
+            </h1>
+
+            <div>
+              <form method="POST">
+        {% csrf_token %}
+       
+           <div id="user">
+                <input type="text" name="name"  autocomplete="off" placeholder="Ingresa Tu Nombre"/>
+              </div>
+      
+        <button id="miboton" type="submit" name="_submit" class="btn">entrar</button>
+      </form>
+            </div>
+          </div>
+          </div>
+            
+      <footer>
+        <p>Html5 css3 Javascript Algo Mas que un Hola mundo</p>
+      </footer>
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../static/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="../static/js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            $(document).on('ready',function(){
+              $('#miboton').addClass('animated tada');
+               $('#titula').addClass('animated bounceInRight');
+            });
+        </script>
+
+    </body>
+</html>
